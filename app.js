@@ -1,9 +1,14 @@
-let listaAmigos = [];
+let listaNombres = [];
 
 function agregarNombre() {
     let nombreAmigo = document.getElementById("amigo");
-    if (nombreAmigo.value.trim() !== "") {
-        listaAmigos.push(nombreAmigo.value.trim()); //.trim elimina espacios al inicio y al final
+    let nombre = nombreAmigo.value.trim();
+    if (nombre !== "") {
+        if (listaNombres.includes(nombre)) {
+            alert("El nombre ya está en la lista.");
+            return;
+        }
+        listaNombres.push(nombre);
         nombreAmigo.value = ""; // Limpia el input
         mostrarLista();
     } else {
@@ -12,16 +17,16 @@ function agregarNombre() {
 }
 
 function mostrarLista() {
-    let listaNombres = document.getElementById("lista");
-    listaNombres.innerHTML = ""; // Limpia la lista antes de mostrar los nuevos nombres
-    listaAmigos.forEach(amigo => {
-        let listaCompleta = document.createElement("listaCompleta");
-        listaCompleta.textContent = amigo;
-        listaNombres.appendChild(listaCompleta);
-    });
+     let listaAmigos = document.getElementById("listaAmigos");
+
+    listaAmigos.innerHTML = ''; // Limpia la lista antes de mostrar los nuevos nombres
+
+    //Recorremos y añadimos el listado
+    for (let i = 0; i < listaNombres.length; i++) {
+        let listaCompleta = document.createElement("li");
+        listaCompleta.textContent = listaNombres[i];
+        listaAmigos.appendChild(listaCompleta);
+        document.getElementById('amigo').value = "";
+    }
 }
 
-/*function mostrarLista() {
-    let listaNombres = document.getElementById("lista");
-    listaNombres.innerHTML = listaAmigos.map(amigo => `<li>${amigo}</li>`).join('');
-}*/
