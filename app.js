@@ -1,24 +1,22 @@
-//Practica 1
 let listaAmigos = [];
 
-// ...existing code...
 function agregarNombre() {
-    const input = document.getElementById("amigo"); // Obtiene el input por su ID, es el input donde la persona escribe el nombre del amigo.
-    const nombre = input.value.trim();
-    if (nombre) {
-        listaAmigos.push(nombre);
+    let nombreAmigo = document.getElementById("amigo");
+    if (nombreAmigo.value.trim() !== "") {
+        listaAmigos.push(nombreAmigo.value.trim()); //.trim elimina espacios al inicio y al final
+        nombreAmigo.value = ""; // Limpia el input
         mostrarLista();
-        input.value = ""; // Limpia el input
+    } else {
+        alert("Por favor, ingresa un nombre válido.");
     }
 }
 
 function mostrarLista() {
-    const ul = document.getElementById("lista");
-    ul.innerHTML = "";
+    let listaNombres = document.getElementById("lista");
+    listaNombres.innerHTML = ""; // Limpia la lista antes de mostrar los nuevos nombres
     listaAmigos.forEach(amigo => {
-        const li = document.createElement("li");
+        let li = document.createElement("li");
         li.textContent = amigo;
-        ul.appendChild(li);
+        listaNombres.appendChild(li);
     });
 }
-// ...existing code...
