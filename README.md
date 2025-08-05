@@ -21,9 +21,4 @@ Este proyecto es una aplicación web simple para organizar un sorteo de "Amigo S
 - `app.js` — Lógica de la aplicación (agregar nombres, mostrar lista, sorteo).
 - `style.css` — Estilos para la página.
 
-## Uso
-
-1. Abre `index.html` en tu navegador.
-2. Ingresa los nombres y realiza el sorteo.
-
 **¡Disfruta tu sorteo de Amigo Secreto!**
