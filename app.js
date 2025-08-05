@@ -15,8 +15,13 @@ function mostrarLista() {
     let listaNombres = document.getElementById("lista");
     listaNombres.innerHTML = ""; // Limpia la lista antes de mostrar los nuevos nombres
     listaAmigos.forEach(amigo => {
-        let li = document.createElement("li");
-        li.textContent = amigo;
-        listaNombres.appendChild(li);
+        let listaCompleta = document.createElement("listaCompleta");
+        listaCompleta.textContent = amigo;
+        listaNombres.appendChild(listaCompleta);
     });
 }
+
+/*function mostrarLista() {
+    let listaNombres = document.getElementById("lista");
+    listaNombres.innerHTML = listaAmigos.map(amigo => `<li>${amigo}</li>`).join('');
+}*/
